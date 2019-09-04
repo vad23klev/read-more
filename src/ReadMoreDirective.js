@@ -5,7 +5,7 @@ export default {
 		
 		if(bind.value.length > bind.arg){
 
-			vn.elm.textContent = bind.value.substring(0,bind.arg)
+			vn.elm.innerHTML = bind.value.substring(0,bind.arg)
 			var read_more = document.createElement('a');
 	    read_more.href = '#';
 	    read_more.text = 'read more';
@@ -17,17 +17,17 @@ export default {
 		  vn.elm.append(' ', read_more);
 
 			read_more.addEventListener("click", function(){ 
-				vn.elm.textContent = val_container;
+				vn.elm.innerHTML = val_container;
 				vn.elm.append(' ', read_less);
 			});
 
 			read_less.addEventListener("click", function(){ 
-				vn.elm.textContent = bind.value.substring(0,bind.arg)
+				vn.elm.innerHTML = bind.value.substring(0,bind.arg)
 				vn.elm.append(' ', read_more);
 			});
 
 		}else{
-			vn.elm.textContent = bind.value
+			vn.elm.innerHTML = bind.value
 		}
 
 
