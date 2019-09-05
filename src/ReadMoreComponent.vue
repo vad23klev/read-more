@@ -1,11 +1,11 @@
 <template>
-	<div>
-		<p>{{formattedString}}</p>
-		<span v-show="text.length > maxChars">
-			<a :href="link" id="readmore" v-show="!isReadMore" v-on:click="triggerReadMore($event, true)">{{moreStr}}</a>
-			<a :href="link" id="readmore" v-show="isReadMore" v-on:click="triggerReadMore($event, false)">{{lessStr}}</a>
-		</span>
-	</div>
+  <div>
+    <p v-html="formattedString"></p>
+    <span v-show="text.length > maxChars">
+      <a :href="link" id="readmore" v-show="!isReadMore" v-on:click="triggerReadMore($event, true)">{{moreStr}}</a>
+      <a :href="link" id="readmore" v-show="isReadMore" v-on:click="triggerReadMore($event, false)">{{lessStr}}</a>
+    </span>
+  </div>
 </template>
 
 <script>
@@ -44,6 +44,7 @@ export default {
       var val_container = this.text;
       var indexStart = -1;
       var indexEnd = -1;
+      console.log(!this.isReadMore && this.text.length > this.maxChars);
       if (!this.isReadMore && this.text.length > this.maxChars) {
         indexStart = val_container.indexOf('<p>') > -1 ? val_container.indexOf('<p>') : this.text.length;
         val_container = this.text;
