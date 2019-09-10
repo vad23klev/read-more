@@ -70,7 +70,11 @@ export default {
       return val_container;
     }
   },
-
+ mounted() {
+    const hello = 'Hello World!'
+    debugger
+    this.message = hello
+  },
   methods: {
     triggerReadMore: function triggerReadMore(e, b) {
       if (this.link == "#") {
